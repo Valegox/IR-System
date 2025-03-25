@@ -6,7 +6,7 @@ def removeSurroundingSpaces(self):
     return "".join(self.rstrip().lstrip())
 
 def getDocumentsIncludingWord(word):
-    reader = csv.reader(open('invertedIndex.csv', 'r'))
+    reader = csv.reader(open('generated/invertedIndex.csv', 'r'))
     for row in reader:
         if row[0].lower() == word.lower():
             return row[2].split(' ')
@@ -14,7 +14,7 @@ def getDocumentsIncludingWord(word):
 
 def getDocumentNames():
     docs = {}
-    reader = csv.reader(open('index.csv', 'r'))
+    reader = csv.reader(open('generated/index.csv', 'r'))
     for row in reader:
         if row[0] != 'index': 
             docs[row[0]] = row[1]
@@ -105,7 +105,7 @@ class VectorSpaceModel:
     
     def getDocumentVector(self, docIndex, words):
         docVector = []
-        reader = csv.reader(open('weightMatrix.csv', 'r'))
+        reader = csv.reader(open('generated/weightMatrix.csv', 'r'))
         for row in reader:
             if row[0].lower() in words:
                 docVector.append(float(row[docIndex]))

@@ -25,7 +25,7 @@ def main():
     path = sys.argv[1]
 
     # create CSV file for index
-    with open('index.csv', 'w', newline='') as csvFile:
+    with open('generated/index.csv', 'w', newline='') as csvFile:
         fieldnames = ['index', 'document']
         writer = csv.DictWriter(csvFile, fieldnames=fieldnames)
         writer.writeheader()
@@ -36,14 +36,14 @@ def main():
             i += 1
 
     # create CSV file for inverted index
-    with open('invertedIndex.csv', 'w', newline='') as csvFile:
+    with open('generated/invertedIndex.csv', 'w', newline='') as csvFile:
         fieldnames = ['word', 'frequency', 'documents']
         writer = csv.DictWriter(csvFile, fieldnames=fieldnames)
         writer.writeheader()
         for word in index:
             writer.writerow({'word': word, 'frequency': len(index[word].split(' ')), 'documents': index[word]})
     
-    print("invertedIndex.csv generated successfully.")
+    print("generated/invertedIndex.csv generated successfully.")
 
 if __name__ == '__main__':
     main()

@@ -17,7 +17,7 @@ def main():
     values = {}
 
     # create CSV file for index
-    with open('weightMatrix.csv', 'w', newline='') as csvFile:
+    with open('generated/weightMatrix.csv', 'w', newline='') as csvFile:
         reader = csv.reader(csvFile)
 
         for filename in os.listdir(path):
@@ -49,7 +49,7 @@ def main():
                     line.append(0)
             writer.writerow(line)
         
-        print('weightMatrix.csv generated successfully.')
+        print('generated/weightMatrix.csv generated successfully.')
 
 if __name__ == '__main__':
     main()
