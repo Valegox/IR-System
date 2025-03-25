@@ -18,8 +18,10 @@ Data sources are in text format and located under the `data` directory. In this 
 
 ## How to use
 
-Prerequisite:
+### Prerequisite
 - python3
+
+### Generate required files
 
 Generate inverted index and weight matrix under the `generated` directory (CSV files):
 ```
@@ -27,11 +29,18 @@ $ python3 generateInvertedIndex.py data
 $ python3 generateWeightMatrix.py data
 ```
 
+### Run the program
+
 Run the IR program:
 ```
 $ python3 script.py
 ```
 
+- Type **1** if you want to use the **boolean model**
+- Type **2** if you want to use the **vector space model**
+
+You can then type a query and expect results according to the model you chose. 
+  
 
 ## Example
 
