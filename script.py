@@ -22,6 +22,19 @@ def getDocumentNames():
 
 docNames = getDocumentNames()
 
+def sanitizeText(text):
+    text = text.lower()
+    text = text.replace(',', '')
+    text = text.replace('.', '')
+    text = text.replace('(', '')
+    text = text.replace(')', '')
+    text = text.replace('?', '')
+    text = text.replace('!', '')
+    text = text.replace(':', '')
+    text = text.replace(';', '')
+    text = text.replace('-', '')
+    return text
+
 class BooleanModel:
 
     def __init__(self):
@@ -84,7 +97,8 @@ class BooleanModel:
 class VectorSpaceModel:
     def __init__(self):
         print("Search documents by words.")
-        query = str(input("▶  ")).lower()
+        query = str(input("▶  "))
+        query = sanitizeText(query)
         result = self.processQuery(query)
         print(f"----- {len(result)} sorted results: -----")
         for (index, docName) in enumerate(result):

@@ -2,8 +2,6 @@ import sys
 import os
 import csv
 
-#def generateInvertedIndex():
-
 index = {}
 
 def indexWords(filePath, i):
