@@ -4,18 +4,33 @@ import csv
 
 index = {}
 
+def sanitizeText(text):
+    text = text.lower()
+    text = text.replace(',', '')
+    text = text.replace('.', '')
+    text = text.replace('(', '')
+    text = text.replace(')', '')
+    text = text.replace('?', '')
+    text = text.replace('!', '')
+    text = text.replace(':', '')
+    text = text.replace(';', '')
+    text = text.replace('-', '')
+    text = text.replace('"', '')
+    text = text.replace('\'', '')
+    return text
+
 def indexWords(filePath, i):
     file = open(filePath)
-    for line in file:
-        # split the line into words
-        words = line.split()
-        # for each word, add the filename to the inverted index
-        for word in words:
-            if word in index:
-                if str(i) not in index[word]:
-                    index[word] = index[word] + ' ' + str(i)
-            else:
-                index[word] = str(i)
+    fileContent = file.read()
+    fileContent = sanitizeText(fileContent)
+    words = fileContent.split()
+    # for each word, add the filename to the inverted index
+    for word in words:
+        if word in index:
+            if str(i) not in index[word]:
+                index[word] = index[word] + ' ' + str(i)
+        else:
+            index[word] = str(i)
     file.close()
 
 def main():
