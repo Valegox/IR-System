@@ -14,7 +14,9 @@ Data sources are in text format and located under the `data` directory. In this 
 - Year
 - Genre
 - Album name
-- Lyrics 
+- Lyrics
+
+Those data come from the website https://www.lyricsify.com/
 
 ## How to use
 
