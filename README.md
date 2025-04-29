@@ -9,7 +9,7 @@ This project aims to create an Information Retrevial System using 3 models:
 
 ## Data sources
 
-Data sources are song lyrics in text format and located under the `data` directory.
+Data sources are 1000 song lyrics in text format and located under the `data` directory.
 
 Data retrieved from [this API](https://lyricsovh.docs.apiary.io/#).
 
