@@ -65,6 +65,3 @@ $ python3 script.py
 ```
 
 You can then type a query.
-
-Note: numpy library 
-
