@@ -84,9 +84,11 @@ class LSIModel:
         queryVector = (queryMatrix @ U2) @ S2_inv
 
         pertinences = []
+        c = 0
         for i, docVector in enumerate(V2):
+            c += 1
             score = self.cosine_similarity(queryVector, docVector)
-            if score > 0:
+            if score > 0 and c < 10:
                 pertinences.append((i, score))
 
         pertinences = sorted(pertinences, key=lambda x: x[1], reverse=True)
