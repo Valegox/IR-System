@@ -39,11 +39,12 @@ U, S, Vt = np.linalg.svd(termDocumentMatrix, full_matrices=False)
 V = Vt.T
 S_mat = np.diag(S) # convert S to a diagonal matrix
 
-# Step 3: implement rank 2 approximation
-U2 = U[:, :2]
-S2 = S_mat[:2, :2]
-V2 = V[:, :2]
-VT2 = Vt[:2, :]
+# Step 3: implement rank k approximation
+k = 90
+U2 = U[:, :k]
+S2 = S_mat[:k, :k]
+V2 = V[:, :k]
+VT2 = Vt[:k, :]
 
 # Get S2 inverse
 S2_inv = np.linalg.inv(S2)

@@ -30,7 +30,11 @@ def main():
             file = open(path + '/' + filename)
             docName = filename[:-4]
 
-            fileContent = file.read()
+            try:
+                fileContent = file.read()
+            except UnicodeDecodeError:
+                print(f"Error reading file {filename}. Skipping.")
+                continue
             fileContent = sanitizeText(fileContent)
             words = fileContent.split()
             words = [word for word in words if word not in stop_words and len(word) > 1] # remove stopwords
@@ -56,7 +60,7 @@ def main():
                     line.append(0)
             writer.writerow(line)
         
-        print('generated/weightMatrix.csv generated successfully.')
+        print('generated/termDocumentMatrix.csv generated successfully.')
 
 if __name__ == '__main__':
     main()
