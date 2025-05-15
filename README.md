@@ -16,7 +16,7 @@ Data retrieved from [this API](https://lyricsovh.docs.apiary.io/#).
   
 ## How to use Boolean and Vector Space Model 
 
-## Prerequisite
+### Prerequisite
 - python3
 
 ### Generate required files
@@ -45,7 +45,7 @@ You can then type a query and expect results according to the model you chose.
 
 ## How to use LSI Model
 
-## Prerequisites
+### Prerequisites
 - python3
 - nltk (used to filter stopwords)
 - numpy (used for matrix calculation)
